@@ -1,0 +1,160 @@
+<%- include('../partials/site-start', { page, title: page.title, description: page.description }) %>
+<section class="hero-section">
+  <div class="hero-backdrop"></div>
+  <video class="hero-video" autoplay muted loop playsinline poster="/images/hero-poster.svg">
+  </video>
+  <div class="container position-relative">
+    <div class="row min-vh-100 align-items-center py-5">
+      <div class="col-lg-8">
+        <div class="eyebrow text-uppercase mb-3" data-aos="fade-up"><%= page.hero.eyebrow %></div>
+        <h1 class="display-title" data-aos="fade-up" data-aos-delay="100"><%= page.hero.title %></h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200"><%= page.hero.subtitle %></p>
+        <p class="hero-copy" data-aos="fade-up" data-aos-delay="300"><%= page.hero.body %></p>
+        <div class="d-flex flex-wrap gap-3 mt-4" data-aos="fade-up" data-aos-delay="400">
+          <a href="/invest-impact" class="btn btn-outline-light btn-lg">Investment Opportunities</a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5 mt-lg-0">
+        <div class="glass-card hero-aside" data-aos="zoom-in" data-aos-delay="250">
+          <h5 class="text-uppercase text-white-50">Vision signal</h5>
+          <p class="mb-0">A national-scale bamboo platform for restoration, industry, and strategic resilience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if (page.stats && page.stats.length) { %>
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-3 stats-grid">
+      <% page.stats.forEach(function(stat, index){ %>
+        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="<%= index * 80 %>">
+          <div class="stat-card">
+            <div class="stat-value count-up" data-count="<%= stat.value %>"><%= stat.value %></div>
+            <div class="stat-label"><%= stat.label %></div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% page.sections.forEach(function(section, index){ %>
+  <section class="section-pad <%= index % 2 === 1 ? 'section-alt' : '' %>">
+    <div class="container">
+      <% if (section.title) { %>
+        <div class="section-heading" data-aos="fade-up">
+          <span class="eyebrow"><%= section.title %></span>
+        </div>
+      <% } %>
+
+      <% if (section.type === 'split') { %>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7" data-aos="fade-right">
+            <h2 class="section-title"><%= section.title %></h2>
+            <p class="section-copy"><%= section.body %></p>
+            <% if (section.points) { %>
+              <ul class="feature-list">
+                <% section.points.forEach(function(point){ %>
+                  <li><i class="fa-solid fa-check"></i><span><%= point %></span></li>
+                <% }) %>
+              </ul>
+            <% } %>
+          </div>
+          <div class="col-lg-5" data-aos="fade-left">
+            <div class="glass-card p-4 h-100">
+              <div class="text-uppercase text-white-50 mb-2">Perspective</div>
+              <p class="mb-0"><%= section.accent %></p>
+            </div>
+          </div>
+        </div>
+      <% } %>
+
+      <% if (section.type === 'cards') { %>
+        <div class="row g-4">
+          <% section.cards.forEach(function(card, cardIndex){ %>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="<%= cardIndex * 80 %>">
+              <article class="eco-card h-100">
+                <div class="eco-card-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3><%= card.title %></h3>
+                <p><%= card.text %></p>
+              </article>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <% if (section.type === 'timeline') { %>
+        <div class="timeline-grid">
+          <% section.items.forEach(function(item, stepIndex){ %>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="<%= stepIndex * 90 %>">
+              <div class="timeline-step"><%= String(stepIndex + 1).padStart(2, '0') %></div>
+              <div>
+                <h4><%= item %></h4>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <% if (section.type === 'cta') { %>
+        <div class="cta-panel text-center" data-aos="zoom-in">
+          <h2><%= section.title %></h2>
+          <p><%= section.body %></p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <% section.buttons.forEach(function(button){ %>
+              <a class="btn <%= button.href === '/investment' ? 'btn-outline-light' : 'btn-gold' %> btn-lg" href="<%= button.href %>"><%= button.label %></a>
+            <% }) %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </section>
+<% }) %>
+
+<% if (page.chart) { %>
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <h2 class="section-title">Environmental dashboard</h2>
+        <p class="section-copy">Interactive performance tracking for carbon, soil, biodiversity, water, and job creation outcomes.</p>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="glass-card p-4 chart-card">
+          <canvas id="impactChart" data-chart-labels='<%= JSON.stringify(page.chart.labels) %>' data-chart-values='<%= JSON.stringify(page.chart.values) %>' height="250"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (featuredNews && featuredNews.length && page.title.includes('Home')) { %>
+<section class="section-pad section-alt">
+  <div class="container">
+    <div class="section-heading mb-4" data-aos="fade-up">
+      <span class="eyebrow">News & Updates</span>
+    </div>
+    <div class="swiper news-swiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <% featuredNews.forEach(function(article){ %>
+          <div class="swiper-slide">
+            <div class="news-card">
+              <div class="news-tag">Featured</div>
+              <h3><%= article.title %></h3>
+              <p><%= article.summary %></p>
+              <a href="/news/<%= article.slug %>">Read story</a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<%- include('../partials/site-end') %>

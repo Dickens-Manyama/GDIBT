@@ -1,0 +1,24 @@
+<%- include('../partials/site-start', { title, description }) %>
+<section class="section-pad hero-page">
+  <div class="container">
+    <div class="auth-card mx-auto" data-aos="zoom-in" style="max-width: 560px;">
+      <span class="eyebrow">Admin Access</span>
+      <h1 class="section-title">Secure dashboard login</h1>
+      <% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+      <form method="post" action="/admin/login" class="row g-3 mt-3">
+        <div class="col-12">
+          <label class="form-label">Email</label>
+          <input class="form-control form-control-lg" type="email" name="email" required />
+        </div>
+        <div class="col-12">
+          <label class="form-label">Password</label>
+          <input class="form-control form-control-lg" type="password" name="password" required />
+        </div>
+        <div class="col-12">
+          <button class="btn btn-gold btn-lg w-100" type="submit">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include('../partials/site-end') %>

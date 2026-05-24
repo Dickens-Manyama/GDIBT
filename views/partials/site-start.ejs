@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <% const resolvedTitle = (typeof page !== 'undefined' && page && page.title) || title || siteName; %>
+  <% const resolvedDescription = (typeof page !== 'undefined' && page && page.description) || description || 'Green Defence Bamboo Initiative Tanzania'; %>
+  <title><%= resolvedTitle %></title>
+  <meta name="description" content="<%= resolvedDescription %>" />
+  <meta name="theme-color" content="#0f2d21" />
+  <meta property="og:title" content="<%= resolvedTitle %>" />
+  <meta property="og:description" content="<%= resolvedDescription %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/og-banner.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="site-shell">
+  <aside class="side-nav" id="sideNav">
+    <div class="brand-lockup">
+      <a class="navbar-brand" href="/">
+        <span class="brand-mark"><i class="fa-solid fa-leaf"></i></span>
+        <span>
+          <strong>GDBIT</strong>
+          <small>Green Defence Bamboo Initiative Tanzania</small>
+        </span>
+      </a>
+    </div>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/partnership">Partnership</a>
+      <a class="nav-link" href="/bambooguard">BambooGuard</a>
+      <a class="nav-link" href="/manufacturing">Manufacturing</a>
+      <a class="nav-link" href="/invest-impact">Investment & Impact</a>
+      <a class="nav-link" href="/phases">Phases</a>
+      <a class="nav-link" href="/innovation">Innovation</a>
+      <a class="nav-link" href="/news">News</a>
+      <a class="nav-link" href="/team">Our Team</a>
+      <a class="nav-link" href="/contact">Contact</a>
+    </nav>
+  </aside>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-dark navbar-glass py-2 d-flex align-items-center justify-content-between">
+      <div class="container-fluid d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-light d-lg-none" id="sideToggle" aria-label="Toggle menu">☰</button>
+          <a class="navbar-brand brand-lockup" href="/">
+            <span class="brand-mark"><i class="fa-solid fa-leaf"></i></span>
+            <span>
+              <strong>GDBIT</strong>
+              <small>Green Defence Bamboo Initiative Tanzania</small>
+            </span>
+          </a>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <a class="btn btn-outline-light btn-sm" href="?lang=sw">SW</a>
+          <a class="btn btn-outline-light btn-sm" href="?lang=en">EN</a>
+          <button class="btn btn-gold btn-sm theme-toggle" type="button" data-theme-toggle>
+            <i class="fa-solid fa-circle-half-stroke me-1"></i>Theme
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>

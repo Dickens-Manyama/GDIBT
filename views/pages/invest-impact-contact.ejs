@@ -1,0 +1,115 @@
+<%- include('../partials/site-start', { title: title, description: investment.description }) %>
+
+<section class="section-pad hero-page">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8" data-aos="fade-right">
+        <span class="eyebrow"><%= investment.hero.eyebrow %></span>
+        <h1 class="section-title"><%= investment.hero.title %></h1>
+        <p class="section-copy"><%= investment.hero.body %></p>
+      </div>
+      <div class="col-lg-4" data-aos="fade-left">
+        <div class="glass-card p-4">
+          <h5 class="mb-2">Investor Relations</h5>
+          <p class="mb-0">Contact our investor relations team for briefings and proposal material.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% investment.sections.forEach(function(section, idx){ %>
+  <section class="section-pad <%= idx % 2 === 1 ? 'section-alt' : '' %>">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8" data-aos="fade-up">
+          <% if (section.title) { %>
+            <h2 class="section-title"><%= section.title %></h2>
+          <% } %>
+          <% if (section.body) { %>
+            <p class="section-copy"><%= section.body %></p>
+          <% } %>
+          <% if (section.points) { %>
+            <ul class="feature-list">
+              <% section.points.forEach(function(p){ %>
+                <li><i class="fa-solid fa-check"></i> <%= p %></li>
+              <% }) %>
+            </ul>
+          <% } %>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up">
+          <% if (section.cards) { %>
+            <div class="glass-card p-4">
+              <% section.cards.forEach(function(card){ %>
+                <h5><%= card.title %></h5>
+                <p class="mb-3"><%= card.text %></p>
+              <% }) %>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% }) %>
+
+<section class="section-pad section-alt">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <h2 class="section-title"><%= impact.hero.title %></h2>
+        <p class="section-copy"><%= impact.hero.body %></p>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="glass-card p-4 chart-card">
+          <canvas id="impactChart" data-chart-labels='<%= JSON.stringify(impact.chart.labels) %>' data-chart-values='<%= JSON.stringify(impact.chart.values) %>' height="260"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="glass-card p-4">
+          <h2 class="section-title h3">General contact form</h2>
+          <% if (sent) { %>
+            <div class="alert alert-success">Your inquiry has been received. The team will respond shortly.</div>
+          <% } %>
+          <form method="post" action="/contact" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Full name</label>
+              <input class="form-control form-control-lg" type="text" name="name" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email address</label>
+              <input class="form-control form-control-lg" type="email" name="email" required />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Subject</label>
+              <input class="form-control form-control-lg" type="text" name="subject" value="General partnership inquiry" required />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" name="message" rows="5" required></textarea>
+            </div>
+            <div class="col-12 d-flex flex-wrap gap-3">
+              <button class="btn btn-gold btn-lg" type="submit">Send inquiry</button>
+              <a class="btn btn-outline-light btn-lg" href="/invest-impact">Investor presentation</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="glass-card p-4">
+          <h3>Additional contact channels</h3>
+          <p>Postal: Ruvu Street, Mikocheni · P.O. Box 31618 · Dar es Salaam, Tanzania</p>
+          <p>Offices: Dar es Salaam | Lindi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/site-end') %>

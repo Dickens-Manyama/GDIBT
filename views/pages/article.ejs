@@ -1,0 +1,12 @@
+<%- include('../partials/site-start', { title, description }) %>
+<section class="section-pad hero-page">
+  <div class="container">
+    <div class="article-shell" data-aos="fade-up">
+      <span class="eyebrow">News Story</span>
+      <h1 class="section-title"><%= article.title %></h1>
+      <p class="section-copy"><%= article.summary %></p>
+      <a class="btn btn-gold" href="/news">Back to news</a>
+    </div>
+  </div>
+</section>
+<%- include('../partials/site-end') %>

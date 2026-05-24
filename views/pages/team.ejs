@@ -1,0 +1,58 @@
+<%- include('../partials/site-start', { title: title, description: 'Our team at GDBIT' }) %>
+<section class="section-pad">
+  <div class="container">
+    <div class="section-heading" data-aos="fade-up">
+      <span class="eyebrow">Our People</span>
+      <h1 class="section-title">Meet the teams behind GDBIT</h1>
+    </div>
+
+    <% teams.forEach(function(teamBlock){ %>
+      <div class="company-block mt-4" data-aos="fade-up">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <% if (teamBlock.logo) { %>
+            <img src="<%= teamBlock.logo %>" alt="<%= teamBlock.company %> logo" style="height:48px; object-fit:contain;"/>
+          <% } %>
+          <h3 class="mb-0 text-capitalize"><%= teamBlock.company %> team</h3>
+        </div>
+        <div class="row g-3">
+          <% if (teamBlock.members && teamBlock.members.length) { %>
+            <% teamBlock.members.forEach(function(member){ %>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="team-card glass-card p-3 h-100 text-center">
+                  <% if (member.image) { %>
+                    <img src="<%= member.image %>" alt="<%= member.displayName || member.name %>" class="team-photo mb-2" data-name="<%= (member.displayName || member.name).toString().replace(/\"/g, '&quot;') %>" data-bio="<%= (member.bio||'').toString().replace(/\"/g, '&quot;') %>" />
+                  <% } %>
+                  <h5 class="mb-1"><%= member.displayName %></h5>
+                  <% /* bios are shown in modal only; keep cards compact */ %>
+                </div>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <div class="col-12"><p class="text-white-50">Team information coming soon.</p></div>
+          <% } %>
+        </div>
+      </div>
+    <% }) %>
+
+  </div>
+</section>
+<!-- Person modal -->
+<div class="modal fade" id="personModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content glass-card p-3">
+      <div class="modal-body">
+        <div class="d-flex gap-3 align-items-start">
+          <img id="modalPhoto" src="" alt="" style="width:120px; height:120px; object-fit:cover; border-radius:.6rem;" />
+          <div>
+            <h4 id="modalName" class="mb-1"></h4>
+            <p id="modalBio" class="small" style="color:var(--muted);"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/site-end') %>

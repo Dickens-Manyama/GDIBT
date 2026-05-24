@@ -1,0 +1,53 @@
+<%- include('../partials/site-start', { title, description }) %>
+<section class="section-pad hero-page">
+  <div class="container">
+    <div class="row g-4 align-items-end">
+      <div class="col-lg-8" data-aos="fade-up">
+        <span class="eyebrow">News & Updates</span>
+        <h1 class="section-title">Sustainability news, project updates, and investment announcements</h1>
+        <p class="section-copy">Updates on restoration progress, factory development, investment milestones, BambooGuard field activity, and community stories from the GDBIT ecosystem.</p>
+      </div>
+    </div>
+
+    <div class="swiper news-swiper mt-4" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <% articles.forEach(function(article){ %>
+          <div class="swiper-slide">
+            <article class="news-card news-card-block h-100">
+              <div class="news-tag">Featured Story</div>
+              <h3><%= article.title %></h3>
+              <p><%= article.summary %></p>
+              <a href="/news/<%= article.slug %>">Read full article</a>
+            </article>
+          </div>
+        <% }) %>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-4" data-aos="fade-up">
+        <article class="news-card news-card-block h-100">
+          <div class="news-tag">Project Update</div>
+          <h3>Plantation corridor planning reaches feasibility milestone</h3>
+          <p>Restoration teams are aligning site selection, nursery readiness, and land stewardship planning across target districts.</p>
+        </article>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <article class="news-card news-card-block h-100">
+          <div class="news-tag">Press Release</div>
+          <h3>BambooGuard expands the conversation around green defense</h3>
+          <p>The campaign continues to frame ecological restoration as a strategic national resilience tool with economic upside.</p>
+        </article>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <article class="news-card news-card-block h-100">
+          <div class="news-tag">Investor Update</div>
+          <h3>Carbon finance and export pathways are being structured for scale</h3>
+          <p>The initiative is building a stronger investment story around climate value, industrial throughput, and export readiness.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../partials/site-end') %>
