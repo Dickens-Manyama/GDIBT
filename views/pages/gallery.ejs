@@ -1,28 +1,56 @@
-<%- include('../partials/site-start', { title: 'Product Gallery', description: 'Gallery of Military, Public, and Commercial Bamboo Products.' }) %>
-<section class="section-pad">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <span class="eyebrow">Product Gallery</span>
-      <h1 class="section-title">Our Bamboo Product Gallery</h1>
-      <p class="section-copy">Browse our range of military, public, and commercial bamboo products below.</p>
-    </div>
-    <div class="row g-4" id="product-galleries">
-      <div class="col-12">
-        <h2 class="mb-3">Military Products Gallery</h2>
-        <div class="row g-2">
+<%- include('../partials/site-start', { title: 'Product Gallery', description: 'Premium Bamboo Product Gallery – Military, Public, and Commercial.' }) %>
+<section class="gallery-hero-section">
+  <div class="container-fluid px-0">
+    <div class="gallery-hero-glass">
+      <div class="gallery-hero-content">
+        <h1 class="gallery-title">Our Premium Product Gallery</h1>
+        <p class="gallery-subtitle">Discover our military, public, and commercial bamboo products in a cinematic, luxury showcase.</p>
+        <a href="/contact" class="btn btn-gold gallery-cta">Request a Quote</a>
+      </div>
+      <div class="gallery-hero-carousel swiper">
+        <div class="swiper-wrapper">
           <% ['bamboo packaging.jpg','camp structures.jpg','military storage unit.jpg','packagin 2.png','roofing sheets.jpg'].forEach(function(img){ %>
-            <div class="col-6 col-md-4 col-lg-3">
-              <img src="/images/Military%20Products%20to%20be%20Produced/<%= img %>" alt="Military Product" class="img-fluid rounded shadow-sm" />
+            <div class="swiper-slide">
+              <div class="gallery-hero-image-wrap">
+                <img src="/images/Military%20Products%20to%20be%20Produced/<%= img %>" alt="Military Product" class="gallery-hero-image cinematic-glass" />
+              </div>
+            </div>
+          <% }) %>
+          <% ['charcoal bricks.jpg','cottonbuds.jpeg','decorative product.jpg','flooring 1.jpg','flooring.jpg','furniture 4.jpg','home tools.jpeg','household product.jpg','products.jpeg','schooldesks and office.jpg','sticks.jpeg','toothpick.jpeg'].forEach(function(img){ %>
+            <div class="swiper-slide">
+              <div class="gallery-hero-image-wrap">
+                <img src="/images/Public%20and%20Commercial%20Products/<%= img %>" alt="Public Product" class="gallery-hero-image cinematic-glass" />
+              </div>
+            </div>
+          <% }) %>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section section-pad">
+  <div class="container-fluid">
+    <div class="row g-4">
+      <div class="col-12">
+        <h2 class="gallery-section-title gold-gradient mb-4">Military Products</h2>
+        <div class="gallery-masonry">
+          <% ['bamboo packaging.jpg','camp structures.jpg','military storage unit.jpg','packagin 2.png','roofing sheets.jpg'].forEach(function(img){ %>
+            <div class="gallery-card cinematic-glass" data-aos="fade-up">
+              <img src="/images/Military%20Products%20to%20be%20Produced/<%= img %>" alt="Military Product" class="gallery-img" />
             </div>
           <% }) %>
         </div>
       </div>
-      <div class="col-12 mt-4">
-        <h2 class="mb-3">Public & Commercial Products Gallery</h2>
-        <div class="row g-2">
+      <div class="col-12 mt-5">
+        <h2 class="gallery-section-title silver-gradient mb-4">Public & Commercial Products</h2>
+        <div class="gallery-masonry">
           <% ['charcoal bricks.jpg','cottonbuds.jpeg','decorative product.jpg','flooring 1.jpg','flooring.jpg','furniture 4.jpg','home tools.jpeg','household product.jpg','products.jpeg','schooldesks and office.jpg','sticks.jpeg','toothpick.jpeg'].forEach(function(img){ %>
-            <div class="col-6 col-md-4 col-lg-3">
-              <img src="/images/Public%20and%20Commercial%20Products/<%= img %>" alt="Public Product" class="img-fluid rounded shadow-sm" />
+            <div class="gallery-card cinematic-glass" data-aos="fade-up">
+              <img src="/images/Public%20and%20Commercial%20Products/<%= img %>" alt="Public Product" class="gallery-img" />
             </div>
           <% }) %>
         </div>
