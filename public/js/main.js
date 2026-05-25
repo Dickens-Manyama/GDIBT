@@ -150,6 +150,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalPhoto) modalPhoto.src = src;
         if (modalName) modalName.textContent = name;
         if (modalBio) modalBio.textContent = bio;
+        // Set status for Unlock Group
+        const modalStatus = document.getElementById('modalStatus');
+        let status = '';
+        const parentBlock = img.closest('.company-block');
+        if (parentBlock && parentBlock.querySelector('h3') && parentBlock.querySelector('h3').textContent.toLowerCase().includes('unlock')) {
+          const lowerName = (name || '').toLowerCase();
+          if (lowerName.includes('baraka')) status = 'Director';
+          else if (lowerName.includes('frank')) status = 'Co-Founder';
+          else if (lowerName.includes('mohamed')) status = 'Co-Founder';
+        }
+        if (modalStatus) {
+          modalStatus.textContent = status;
+          modalStatus.style.display = status ? '' : 'none';
+        }
         modal.show();
       });
     });
