@@ -232,24 +232,17 @@ const pageMap = {
           'Processing and manufacturing at the Lindi base',
           'Distribution, export, and strategic market growth'
         ]
-      }
-            // stats removed
-      eyebrow: 'BambooGuard Campaign',
-      title: 'Securing our future through green defense',
-      subtitle: 'Military sustainability with ecological restoration',
-      body: 'The BambooGuard concept connects environmental restoration with operational resilience, carbon sequestration, and durable landscape protection.'
-    },
-    sections: [
+      },
       {
         type: 'split',
-        title: 'Campaign Introduction',
-        body: 'BambooGuard is a green defense campaign that positions ecological restoration as a national resilience strategy. It explores collaboration with defence stakeholders, including a TPDF concept, to restore degraded land, improve environmental buffers, and support a more secure and sustainable future.',
+        title: 'Securing our future through green defense',
+        body: 'The BambooGuard concept connects environmental restoration with operational resilience, carbon sequestration, and durable landscape protection.',
         points: [
-          'A restoration-first approach to national resilience.',
-          'Carbon, biodiversity, and soil recovery as strategic assets.',
-          'A bridge between environmental responsibility and security thinking.'
+          'Military sustainability with ecological restoration',
+          'Carbon sequestration and landscape protection',
+          'Operational resilience through green development'
         ],
-        accent: 'Environmental security is national security.'
+        accent: 'BambooGuard Campaign'
       },
       {
         type: 'cards',
