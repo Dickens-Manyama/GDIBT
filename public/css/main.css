@@ -323,7 +323,7 @@ html[data-theme="light"] .navbar-glass { background: rgba(255, 255, 255, 0.7); }
 .section-alt { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0)); }
 .section-title { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; margin-bottom: 1rem; }
 .section-heading { margin-bottom: 1rem; }
-.stats-grid { margin-top: -4rem; position: relative; z-index: 2; }
+/* .stats-grid removed */
 .stat-card { border-radius: 1.5rem; padding: 1.4rem; min-height: 8.5rem; }
 .stat-value { font-size: clamp(2rem, 4vw, 3rem); line-height: 1; color: var(--gold); }
 .stat-label { margin-top: .5rem; color: var(--muted); font-size: .95rem; }
@@ -444,7 +444,7 @@ html[data-theme="light"] .form-control, html[data-theme="light"] .form-select {
 
 @media (max-width: 991.98px) {
   .display-title { max-width: 100%; }
-  .stats-grid { margin-top: 0; }
+  /* .stats-grid removed */
 }
 
 @media (max-width: 575.98px) {

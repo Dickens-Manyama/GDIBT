@@ -26,12 +26,7 @@ const pageMap = {
       subtitle: 'Strength in Restoration, Security in Sustainability',
       body: 'Green Defence Bamboo Initiative Tanzania unites restoration, manufacturing, investment, and strategic partnerships to build climate-smart industry, create jobs, and strengthen national resilience.'
     },
-    stats: [
-      { value: '10M+', label: 'Trees Planned' },
-      { value: '25K+', label: 'Jobs Created' },
-      { value: '4.2M t', label: 'Carbon Reduction Target' },
-      { value: '500+', label: 'Communities Empowered' }
-    ],
+      // stats removed
     sections: [
       {
         type: 'split',
@@ -238,12 +233,7 @@ const pageMap = {
           'Distribution, export, and strategic market growth'
         ]
       }
-    ]
-  },
-  bambooguard: {
-    title: 'BambooGuard Campaign | GDBIT',
-    description: 'Green defense, environmental restoration, and climate resilience through bamboo landscapes.',
-    hero: {
+            // stats removed
       eyebrow: 'BambooGuard Campaign',
       title: 'Securing our future through green defense',
       subtitle: 'Military sustainability with ecological restoration',

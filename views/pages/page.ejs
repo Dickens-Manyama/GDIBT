@@ -30,14 +30,6 @@
 <section class="section-pad">
   <div class="container">
     <div class="row g-3 stats-grid">
-      <% page.stats.forEach(function(stat, index){ %>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="<%= index * 80 %>">
-          <div class="stat-card">
-            <div class="stat-value count-up" data-count="<%= stat.value %>"><%= stat.value %></div>
-            <div class="stat-label"><%= stat.label %></div>
-          </div>
-        </div>
-      <% }) %>
     </div>
   </div>
 </section>
