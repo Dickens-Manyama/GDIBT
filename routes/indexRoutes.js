@@ -12,6 +12,7 @@ router.get('/invest-impact', siteController.investImpactContact);
 router.get('/team', siteController.team);
 router.get('/phases', siteController.phases);
 router.get('/innovation', siteController.innovation);
+router.get('/gallery', (req, res) => res.render('pages/gallery'));
 router.get('/contact', siteController.contact);
 router.post('/contact', siteController.submitContact);
 

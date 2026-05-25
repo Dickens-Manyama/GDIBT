@@ -20,18 +20,22 @@
               <div class="col-6 col-md-4 col-lg-3">
                 <div class="team-card glass-card p-3 h-100 text-center">
                   <% if (member.image) { %>
-                    <img src="<%= member.image %>" alt="<%= member.displayName || member.name %>" class="team-photo mb-2" data-name="<%= (member.displayName || member.name).toString().replace(/\"/g, '&quot;') %>" data-bio="<%= (member.bio||'').toString().replace(/\"/g, '&quot;') %>" />
+                    <img src="<%= member.image %>" alt="<%= member.displayName || member.name %>" class="team-photo mb-2" data-name="<%= (member.displayName || member.name).toString().replace(/\"/g, '&quot;') %>"
+                      data-bio="<% if (teamBlock.company === 'unlock' && member.displayName) { %>
+                        <% if (member.displayName.toLowerCase().includes('baraka')) { %>
+                          Baraka Peneza is an experienced professional with strong expertise in project management, product innovation, finance, research, and business development. He has successfully contributed to the growth and strategic direction of multiple projects and initiatives through his leadership, analytical skills, and innovation-driven approach.
+                        <% } else if (member.displayName.toLowerCase().includes('frank')) { %>
+                          Frank Ephraim Kamina is an expert in export and port operations with over ten years of experience in the maritime industry. His extensive knowledge in logistics, shipping processes, and international trade operations has played a significant role in supporting efficient business and operational management.
+                        <% } else if (member.displayName.toLowerCase().includes('mohamed')) { %>
+                          Mohamed Lawrence Lwanji is a business development professional with more than six years of experience in tax administration and sales. He specializes in business growth strategies, client relations, and revenue development, contributing valuable expertise to the company’s commercial operations and expansion initiatives.
+                        <% } else { %>
+                          <%= (member.bio||'').toString().replace(/\"/g, '&quot;') %>
+                        <% } %>
+                      <% } else { %>
+                        <%= (member.bio||'').toString().replace(/\"/g, '&quot;') %>
+                      <% } %>" />
                   <% } %>
                   <h5 class="mb-1"><%= member.displayName %></h5>
-                  <% if (teamBlock.company === 'unlock' && member.displayName) { %>
-                    <% if (member.displayName.toLowerCase().includes('baraka')) { %>
-                      <p class="small text-white-50">Baraka Peneza is an experienced professional with strong expertise in project management, product innovation, finance, research, and business development. He has successfully contributed to the growth and strategic direction of multiple projects and initiatives through his leadership, analytical skills, and innovation-driven approach.</p>
-                    <% } else if (member.displayName.toLowerCase().includes('frank')) { %>
-                      <p class="small text-white-50">Frank Ephraim Kamina is an expert in export and port operations with over ten years of experience in the maritime industry. His extensive knowledge in logistics, shipping processes, and international trade operations has played a significant role in supporting efficient business and operational management.</p>
-                    <% } else if (member.displayName.toLowerCase().includes('mohamed')) { %>
-                      <p class="small text-white-50">Mohamed Lawrence Lwanji is a business development professional with more than six years of experience in tax administration and sales. He specializes in business growth strategies, client relations, and revenue development, contributing valuable expertise to the company’s commercial operations and expansion initiatives.</p>
-                    <% } %>
-                  <% } %>
                 </div>
               </div>
             <% }) %>
