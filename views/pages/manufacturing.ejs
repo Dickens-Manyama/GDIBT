@@ -1,0 +1,49 @@
+<%- include('../partials/site-start', { title: 'Manufacturing', description: 'Eco-industrial bamboo products for civil, commercial, and strategic applications.' }) %>
+<section class="section-pad">
+  <div class="container">
+    <div class="section-heading" data-aos="fade-up">
+      <span class="eyebrow">Production & Manufacturing</span>
+      <h1 class="section-title">Bamboo Product Manufacturing</h1>
+      <p class="section-copy">Explore our production process and product categories.</p>
+    </div>
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2>Production in Action</h2>
+        <video controls poster="/images/hero-poster.svg" style="width:100%;border-radius:12px;">
+          <source src="/videos/production%20video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h2>Background</h2>
+        <video controls poster="/images/hero-poster.svg" style="width:100%;border-radius:12px;">
+          <source src="/videos/background%20video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="row g-4 mt-5">
+      <div class="col-12">
+        <h2 class="mb-3">Military Products Gallery</h2>
+        <div class="row g-2">
+          <% ['bamboo packaging.jpg','camp structures.jpg','military storage unit.jpg','packagin 2.png','roofing sheets.jpg'].forEach(function(img){ %>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="/images/Military%20Products%20to%20be%20Produced/<%= img %>" alt="Military Product" class="img-fluid rounded shadow-sm" />
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <h2 class="mb-3">Public & Commercial Products Gallery</h2>
+        <div class="row g-2">
+          <% ['charcoal bricks.jpg','cottonbuds.jpeg','decorative product.jpg','flooring 1.jpg','flooring.jpg','furniture 4.jpg','home tools.jpeg','household product.jpg','products.jpeg','schooldesks and office.jpg','sticks.jpeg','toothpick.jpeg'].forEach(function(img){ %>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="/images/Public%20and%20Commercial%20Products/<%= img %>" alt="Public Product" class="img-fluid rounded shadow-sm" />
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../partials/site-end') %>

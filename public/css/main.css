@@ -232,8 +232,8 @@ html[data-theme="light"] .navbar-glass { background: rgba(255, 255, 255, 0.7); }
 .side-nav .brand-lockup { margin-bottom: 1rem; }
 main { transition: margin-left .28s ease; }
 @media (min-width: 992px) {
-  .side-nav { transform: translateX(0); }
-  main { margin-left: 260px; }
+  main { margin-left: 0; }
+  .side-nav.open ~ main { margin-left: 260px; }
 }
 
 /* Team photo non-cropping */

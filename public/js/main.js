@@ -98,20 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Sidebar toggle for small screens
   const sideToggle = document.getElementById('sideToggle');
   const sideNav = document.getElementById('sideNav');
+  const syncSideToggleState = () => {
+    if (!sideToggle || !sideNav) return;
+    sideToggle.setAttribute('aria-expanded', sideNav.classList.contains('open') ? 'true' : 'false');
+  };
+
+  if (sideNav && window.innerWidth >= 992) {
+    sideNav.classList.add('open');
+  }
+  syncSideToggleState();
+
   sideToggle?.addEventListener('click', () => {
     sideNav?.classList.toggle('open');
+    syncSideToggleState();
   });
 
-  // Close sideNav when clicking outside or when a nav link is clicked (on small screens)
+  // Close sideNav when clicking outside or when a nav link is clicked
   document.addEventListener('click', (e) => {
     try {
       const target = e.target;
-      const isSmall = window.innerWidth < 992;
-      if (!isSmall) return; // only auto-close on small screens
       if (!sideNav || !sideNav.classList.contains('open')) return;
       if (target.closest && (target.closest('#sideNav') || target.closest('#sideToggle'))) return;
       // clicked outside
       sideNav.classList.remove('open');
+      syncSideToggleState();
     } catch (err) {
       // ignore
     }
@@ -120,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close when any side-nav link is clicked (mobile)
   document.querySelectorAll('.side-nav .nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth < 992) sideNav?.classList.remove('open');
+      sideNav?.classList.remove('open');
+      syncSideToggleState();
     });
   });
 
